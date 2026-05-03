@@ -34,3 +34,5 @@ postgresql:
   primary:
     persistence:
       enabled: false
+  image:
+    tag: "latest"
