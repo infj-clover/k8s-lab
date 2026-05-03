@@ -35,4 +35,4 @@ postgresql:
     persistence:
       enabled: false
   image:
-    tag: "latest"
+    tag: "latest" 

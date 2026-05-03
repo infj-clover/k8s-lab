@@ -1,10 +1,10 @@
 from airflow import DAG
 from airflow.operators.bash import BashOperator
-from datatime import datatime
+from datetime import datetime
 
 with DAG(
     dag_id = "test_git_sync_dag",
-    start_data=datatime[2025, 5, 2],
+    start_data=datetime(2025, 5, 2),
     schedule_interval= None,
     catchup = False,
     tags = ["git", "test"],
