@@ -1,0 +1,36 @@
+executor: KubernetesExecutor
+
+airflow:
+  config:
+    AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags/repo
+    AIRFLOW__LOGGING__REMOTE_LOGGING: "False"
+    AIRFLOW__LOGGING__LOGGING_LEVEL: "INFO"
+
+dags:
+  gitSync:
+    enabled: true
+    repo: https://github.com/infj-clover/k8s-lab.git
+    branch: main
+    subPath: airflow
+    depth: 1
+    wait: 10
+  persistence:
+    enabled: true
+
+logs:
+  persistence:
+    enabled: false
+
+web:
+  service:
+    type: LoadBalancer
+
+postgresql:
+  enabled: true
+  auth:
+    username: airflow
+    password: airflow
+    database: airflow
+  primary:
+    persistence:
+      enabled: false
