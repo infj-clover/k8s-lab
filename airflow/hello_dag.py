@@ -4,7 +4,7 @@ from datetime import datetime
 
 with DAG(
     dag_id = "test_git_sync_dag",
-    start_data=datetime(2025, 5, 2),
+    start_date=datetime(2025, 5, 2),
     schedule_interval= None,
     catchup = False,
     tags = ["git", "test"],
@@ -12,17 +12,17 @@ with DAG(
 
     start = BashOperator(
         task_id = "start_task",
-        bash_command = "echo 'Starting Dag exeuction...'"
+        bash_command = "echo 'Starting Dag execution...'"
     )
 
     middle = BashOperator(
         task_id = "middle_task",
-        bash_command = "echo 'Starting Dag exeuction...'"
+        bash_command = "echo 'Starting Dag execution...'"
     )
 
     end = BashOperator(
         task_id = "end_task",
-        bash_command = "echo 'Starting Dag exeuction...'"
+        bash_command = "echo 'Starting Dag execution...'"
     )
 
     start >> middle >> end
